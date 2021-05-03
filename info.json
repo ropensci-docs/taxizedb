@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "a9ca8b2b826cbecec0274bb4d76447a6478c3e52",
+    "author": "Rekyt <matthias.grenie@ens-lyon.fr>",
+    "time": "2021-05-03 21:53:01",
+    "files": 4,
+    "merge": false,
+    "message": "Transform ropensci.github.io in docs.ropensci.org\n"
+  },
+  "remote": "https://github.com/ropensci/taxizedb",
+  "pkg": "taxizedb"
+}
