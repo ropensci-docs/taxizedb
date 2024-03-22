@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "3a78dd442680101d581e131010f0e15aab83a9ae",
+    "author": "Tamás Stirling <49147718+stitam@users.noreply.github.com>",
+    "time": "2023-04-24 07:52:39",
+    "files": 4,
+    "merge": true,
+    "message": "Merge pull request #67 from stitam/readme\n\nUpdate README and CITATION"
+  },
+  "repo": "https://github.com/ropensci/taxizedb",
+  "pkg": "taxizedb"
+}
