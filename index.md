@@ -1,0 +1,115 @@
+# taxizedb
+
+[![status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![cran
+checks](https://badges.cranchecks.info/worst/taxizedb.svg)](https://badges.cranchecks.info/worst/taxizedb.svg)
+[![R-check](https://github.com/ropensci/taxizedb/workflows/R-check/badge.svg)](https://github.com/ropensci/taxizedb/actions)
+[![codecov](https://codecov.io/gh/ropensci/taxizedb/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/taxizedb)
+[![rstudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/taxizedb)](https://github.com/r-hub/cranlogs.app)
+[![Total
+Downloads](https://cranlogs.r-pkg.org/badges/grand-total/taxizedb?color=blue)](https://cran.r-project.org/package=taxizedb)
+[![cran
+version](https://www.r-pkg.org/badges/version/taxizedb)](https://cran.r-project.org/package=taxizedb)
+[![DOI](https://zenodo.org/badge/53961466.svg)](https://zenodo.org/badge/latestdoi/53961466)
+
+`taxizedb` - Tools for Working with Taxonomic Databases
+
+Docs: <https://docs.ropensci.org/taxizedb/>
+
+`taxizedb` is an R package for interacting with taxonomic databases. Its
+functionality can be divided in two parts: 1. You can download the
+databases to your platform 2. You can query the downloaded databases to
+retrieve taxonomic information.
+
+This two step approach is different from tools which interact with web
+services for each query, and has a number of advantages:
+
+- Once you download a database you can work with it offline
+- Once you download a database querying it is super fast
+- As long as you store your database files all the queries in your
+  analysis will be fully reproducible
+
+## Data sources
+
+When you download a database with `taxizedb` it will automatically
+convert it to SQLite and then all query functions will interact with
+this SQLite database. However, not all taxonomic databases are publicly
+available, or can be converted to SQLite. The following databases are
+supported:
+
+- [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)
+- [ITIS](https://itis.gov/)
+- [World Flora Online (WFO)](https://www.worldfloraonline.org/)
+- [Catalogue of Life (COL)](https://www.catalogueoflife.org/)
+- [Global Biodiversity Information Facility
+  (GBIF)](https://www.gbif.org/)
+- [Wikidata](https://zenodo.org/records/1213477)
+
+Get in touch [in the
+issues](https://github.com/ropensci/taxizedb/issues) with any ideas on
+new data sources.
+
+## Data sources - legacy support
+
+[The Plant List (TPL)](https://en.wikipedia.org/wiki/The_Plant_List) has
+been replaced by World Flora Online. The website seems to be down so
+`taxizedb` can no longer facilitate new downloads. However, already
+downloaded database files can still be queried using `taxizedb`
+functions, for reproducibility.
+
+## Package API
+
+This package for each data sources performs the following tasks:
+
+- Downloaded taxonomic databases `db_download_*`
+- Create `dplyr` SQL backend via
+  [`dbplyr::src_dbi`](https://dbplyr.tidyverse.org/reference/src_dbi.html) -
+  `src_*`
+- Query and get data back into a data.frame - `sql_collect`
+- Manage cached database files - `tdb_cache`
+- Retrieve immediate descendents of a taxon - `children`
+- Retrieve the taxonomic hierarchies from local database -
+  `classification`
+- Retrieve all taxa descending from a vector of taxa - `downstream`
+- Convert species names to taxon IDs - `name2taxid`
+- Convert taxon IDs to species names - `taxid2name`
+- Convert taxon IDs to ranks - `taxid2rank`
+
+You can use the `src` connections with `dplyr`, etc. to do operations
+downstream. Or use the database connection to do raw SQL queries.
+
+## Installation
+
+CRAN version
+
+``` r
+
+install.packages("taxizedb")
+```
+
+dev version
+
+``` r
+
+remotes::install_github("ropensci/taxizedb")
+```
+
+## Citation
+
+To cite taxizedb in publications use:
+
+- Chamberlain S, Arendsee Z, Stirling T (2023). taxizedb: Tools for
+  Working with ‘Taxonomic’ Databases. R package version 0.3.1.
+  <https://doi.org/10.5281/zenodo.1158055>
+
+## Meta
+
+- Please [report any issues, bugs or feature
+  requests](https://github.com/ropensci/taxizedb/issues).
+- License: MIT
+- Get citation information for `taxizedb` in R with
+  `citation(package = 'taxizedb')`
+- Please note that this package is released with a [Contributor Code of
+  Conduct](https://ropensci.org/code-of-conduct). By contributing to
+  this project, you agree to abide by its terms.
